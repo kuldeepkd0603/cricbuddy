@@ -3,5 +3,12 @@ CricBuddy is such a platform that you can track the performance of teams in IPL 
 
 ![image](https://github.com/kuldeepkd0603/cricbuddy/assets/151425727/60c96e0f-1808-4743-a9f8-0fa0804d2683)
 And I have created this platform with the help of Django framework in which the user can register as well as login and logout.
+![image](https://github.com/kuldeepkd0603/cricbuddy/assets/151425727/74ac68e1-bcab-4057-9d67-5d0430bb0a6b)
+This is a machine learning model which I created using IPL datasets. It has two types of user models.
+1. Match Winning Predictor: If the user feeds some real life IPL match condition data, then this model can predict the winning percentage of that IPL match.
+2. Target Predictor:
+  Target predictor is the second model. It is used during the first innings of the match. If the user feeds some conditions of the IPL match, then this model predicts the target of the match to the user.
 ![Uploading image.png…]()
+![Uploading image.png…]()
+
 

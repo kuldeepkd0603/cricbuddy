@@ -13,6 +13,22 @@ This is a machine learning model which I created using IPL datasets. It has two 
   Target predictor is the second model. It is used during the first innings of the match. If the user feeds some conditions of the IPL match, then this model predicts the target of the match to the user.
 ![image](https://github.com/kuldeepkd0603/cricbuddy/assets/151425727/a83b0a4f-7e4b-4bea-be58-2a5bd07965b3)
 ![image](https://github.com/kuldeepkd0603/cricbuddy/assets/151425727/952b8eaf-ef07-4d65-a3e1-b689821fb983)
+![image](https://github.com/kuldeepkd0603/cricbuddy/assets/151425727/6ec5e475-13e5-4464-9f7a-93c908a30a83)
+![image](https://github.com/kuldeepkd0603/cricbuddy/assets/151425727/dbcabcc8-52f2-40ad-8fef-7e1e6baf1256)
+![image](https://github.com/kuldeepkd0603/cricbuddy/assets/151425727/a1798f01-3b6d-462c-b75f-aa624a5c62f3)
+
+
+
+
+
+
+
+
+
+And in the future, I want to work more on this project. I will add some such features in this project so that the visualization of the entire IPL can be done and also the analysis of each player.
+
+
+
 
 
 

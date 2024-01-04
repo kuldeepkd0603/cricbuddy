@@ -1,0 +1,40 @@
+{% extends 'iplfreak/base.html' %}
+
+{% block title %}
+    Points Table {{ year }}
+{% endblock %}
+
+{% block image %}
+    {% if request.user.is_authenticated %}
+        <figure class="image is-64x64">
+            <img class="is-rounded" src="http://127.0.0.1:8000/media/{{ profile_pic }}" alt="Image">
+        </figure>
+    {% endif %}
+{% endblock %}
+{%load static%}
+{% block content %}
+
+    <div style="background-image:url('{% static "wp12332875-ipl-stadium-wallpapers.jpg" %}');background-position: center center;" class="columns">
+        <div class="column is-one-quarter"></div>
+        <div style="background-image:url('{% static "dark-background-abstract-background-network-3d-background-7680x4320-8324.png" %}');background-position: center center;" class="column is-half">
+            <h1  style="color:white" class="title is-2">Points Table {{ year }}</h1>
+            <table style="color:white;background-image:url('{% static "dark-background-abstract-background-network-3d-background-7680x4320-8324.png" %}');background-position: center center;" class="table is-bordered is-fullwidth">
+                <thead>
+                    <tr >
+                        <th style="color:white" >Team</th>
+                        <th style="color:white">Points</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for team in points_table %}
+                        <tr>
+                            <td>{{ team.0 }}</td>
+                            <td>{{ team.1 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

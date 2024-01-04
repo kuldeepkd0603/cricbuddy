@@ -1,0 +1,47 @@
+{% extends 'iplfreak/base.html' %}
+
+{% block title %}
+    Teams {{ year }}
+{% endblock %}
+
+{% block image %}
+    {% if request.user.is_authenticated %}
+        <figure class="image is-64x64">
+            <img class="is-rounded" src="/media/{{ profile_pic }}" alt="Image">
+        </figure>
+    {% endif %}
+{% endblock %}
+{% load static %}
+{% block content %}
+
+    <div style="background-image:url('{% static "wp12332875-ipl-stadium-wallpapers.jpg" %}');background-position: center center;" class="columns">
+        <center>
+        <div style="height:200px;width:900px"> 
+    
+            <img style="height:200px;width:900px;margin-left:170px" src="{% static "skh38yvc.png" %}">
+            
+        
+        </div>
+        <div class="column is-one-quarter"></div>
+        <div  style="margin-top:-35px;margin-left:390px" class="column is-half">
+            <table style="background-image:url('{% static "dark-background-abstract-background-network-3d-background-7680x4320-8324.png" %}');background-position: center center;" class="table is-fullwidth">
+                <thead>
+                    <tr>
+                        <th style="color:white" class="title is-4">Teams {{ year }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for team in teams %}
+                        <tr>
+                            <td style="color:white">{{ team.team1 }}</td>
+                            <td><a class="tag is-link" href="{% url 'team_details' year team.team1 %}">View details</a></td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</center>
+{% endblock %}

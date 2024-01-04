@@ -1,0 +1,29 @@
+{% extends 'iplfreak/base.html' %}
+
+{% block title %}
+    Points Table {{ year }}
+{% endblock %}
+
+{% block image %}
+    {% if request.user.is_authenticated %}
+        <figure class="image is-64x64">
+            <img class="is-rounded" src="http://127.0.0.1:8000/media/{{ profile_pic }}" alt="Image">
+        </figure>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+
+<div style="background-color:white">
+    <a  class="button is-info" href="{% url 'batting'  %}">batting</a>
+    <a  class="button is-info" href="{% url 'bowling'  %}">bowling</a>
+    <a class="button is-info" href="{% url 'ipl' %}">ipl Analysis</a>
+       
+
+</div>
+
+
+{% endblock %}

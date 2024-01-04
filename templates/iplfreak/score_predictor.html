@@ -1,0 +1,140 @@
+{% extends 'iplfreak/base.html' %}
+
+{% block title %}
+    Points Table {{ year }}
+{% endblock %}
+
+{% block image %}
+    {% if request.user.is_authenticated %}
+        <figure class="image is-64x64">
+            <img class="is-rounded" src="http://127.0.0.1:8000/media/{{ profile_pic }}" alt="Image">
+        </figure>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div style="height:100px;background-color:#A9A9A9">
+   <center> <h5><b>Welcome to the IPL Score Predictor! Put your cricket knowledge to the test and 
+        try to predict the outcomes of upcoming 
+        matches in the Indian Premier League. Will your predictions be on target</b></h5></center> 
+        <center><h4 style="color:red">We have two type of Predictor target Predictor and match winning predictor </h4></center>
+</div>
+
+<div style="background-color:#A9A9A9" class="prediction-area">
+    <link rel="shortcut icon" href="{% static "ipl-favicon.ico" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <!-- IPL Banner - 1 -->
+    <div class='ipl-banner-left'>
+
+        <div class="slider-frame">
+            <div class="slide-images-up">
+
+                <!-- Image-1 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "mi.jpg" %}" alt="Mumbai Indians">
+                </div>
+                <!-- Image-2 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "srh.png" %}"
+                        alt="Sunrisers Hyderabad">
+                </div>
+                <!-- Image-3 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "rcb.png" %}"
+                        alt="Royal Challengers Bangalore">
+                </div>
+                <!-- Image-4 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "dc.png" %}" alt="Delhi Capitals">
+                </div>
+                <!-- Image-5 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "rr.png" %}"
+                        alt="Rajasthan Royals">
+                </div>
+                <!-- Image-6 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "kkr.jpg" %}"
+                        alt="Kolkata Knight Riders">
+                </div>
+                <!-- Image-7 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "kxip.png" %}"
+                        alt="Kings XI Punjab">
+                </div>
+                <!-- Image-8 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "csk.png" %}"
+                        alt="Chennai Super Kings">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Prediction Form -->
+    
+        <div class='div2'>
+            
+        <a  class="button is-info" href="{% url 'first_inning'  %}"><b>Match inning Predictor</b></a>
+        <a  class="button is-info" href="{% url 'second_inning'  %}"><b>Target Predictor</b></a>
+    </div>
+
+    <!-- IPL Banner - 2 -->
+    <div class='ipl-banner-right'>
+
+        <div class="slider-frame">
+            <div class="slide-images-down">
+
+                <!-- Image-1 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "mi.jpg" %}" alt="Mumbai Indians">
+                </div>
+                <!-- Image-2 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "srh.png" %}"
+                        alt="Sunrisers Hyderabad">
+                </div>
+                <!-- Image-3 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "rcb.png" %}"
+                        alt="Royal Challengers Bangalore">
+                </div>
+                <!-- Image-4 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "dc.png" %}" alt="Delhi Capitals">
+                </div>
+                <!-- Image-5 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "rr.png" %}"
+                        alt="Rajasthan Royals">
+                </div>
+                <!-- Image-6 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "kkr.jpg" %}"
+                        alt="Kolkata Knight Riders">
+                </div>
+                <!-- Image-7 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "kxip.png" %}"
+                        alt="Kings XI Punjab">
+                </div>
+                <!-- Image-8 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "csk.png" %}"
+                        alt="Chennai Super Kings">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+
+{% endblock %}

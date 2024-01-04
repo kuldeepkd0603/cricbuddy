@@ -1,0 +1,194 @@
+{% extends 'iplfreak/base.html' %}
+
+{% block title %}
+    Points Table {{ year }}
+{% endblock %}
+
+{% block image %}
+    {% if request.user.is_authenticated %}
+        <figure class="image is-64x64">
+            <img class="is-rounded" src="http://127.0.0.1:8000/media/{{ profile_pic }}" alt="Image">
+        </figure>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="prediction-area">
+    <link rel="shortcut icon" href="{% static "ipl-favicon.ico" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <!-- IPL Banner - 1 -->
+    <div class='ipl-banner-left'>
+
+        <div class="slider-frame">
+            <div class="slide-images-up">
+
+                <!-- Image-1 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "mi.jpg" %}" alt="Mumbai Indians">
+                </div>
+                <!-- Image-2 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "srh.png" %}"
+                        alt="Sunrisers Hyderabad">
+                </div>
+                <!-- Image-3 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "rcb.png" %}"
+                        alt="Royal Challengers Bangalore">
+                </div>
+                <!-- Image-4 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "dc.png" %}" alt="Delhi Capitals">
+                </div>
+                <!-- Image-5 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "rr.png" %}"
+                        alt="Rajasthan Royals">
+                </div>
+                <!-- Image-6 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "kkr.jpg" %}"
+                        alt="Kolkata Knight Riders">
+                </div>
+                <!-- Image-7 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "kxip.png" %}"
+                        alt="Kings XI Punjab">
+                </div>
+                <!-- Image-8 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "csk.png" %}"
+                        alt="Chennai Super Kings">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Prediction Form -->
+    <div class='div2'>
+        {% csrf_token %}
+        <form action= {% url "result_first" %}>
+            <!-- Batting Team Dropdown -->
+            <select class="form-input align-center" name="batting-team">
+                <option value="none">--- Select a Batting team ---</option>
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Kings XI Punjab">Kings XI Punjab</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Delhi Daredevils">Delhi Daredevils</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+            </select><br>
+            <!-- Bowling Team Dropdown -->
+            <select class="form-input align-center" name="bowling-team">
+                <option value="none">--- Select a Bowling team ---</option>
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Kings XI Punjab">Kings XI Punjab</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Delhi Daredevils">Delhi Daredevils</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+            </select><br>
+             
+            <select class="form-input align-center" name="host_city">
+                <option value="none">--- Select host city---</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Indore">Indore</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Cape Town">Cape Town</option>
+                <option value="Port Elizabeth">Port Elizabeth</option>
+                <option value="Durban">Durban</option>
+                <option value="Centurion">Centurion</option>
+                <option value="East London">East London</option>
+                <option value="Johannesburg">Johannesburg</option>
+                <option value="Kimberley">Kimberley</option>
+                <option value="Visakhapatnam">Visakhapatnam</option>
+                <option value="Pune">Pune</option>
+                <option value="Raipur">Raipur</option>
+                <option value="Ranchi">Ranchi</option>
+                <option value="Abu Dhabi">Abu Dhabi</option>
+                <option value="Sharjah">Sharjah</option>
+                <option value="Mohali">Mohali</option>
+                <option value="Bengaluru">Bengaluru</option>
+            </select><br>
+            <input class="form-input" type="text" name="Target" placeholder="Target"><br>
+            <input class="form-input" type="text" name="Score" placeholder="Score"><br>
+            <input class="form-input" type="text" name="over_completed"
+                placeholder="over completed"><br>
+            <input class="form-input" type="text" name="wicket_out"
+                placeholder="Wicket out"><br>
+
+            <input type="submit" class="myButton" value="Predict Score">
+        </form>
+    </div>
+
+    <!-- IPL Banner - 2 -->
+    <div class='ipl-banner-right'>
+
+        <div class="slider-frame">
+            <div class="slide-images-down">
+
+                <!-- Image-1 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "mi.jpg" %}" alt="Mumbai Indians">
+                </div>
+                <!-- Image-2 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "srh.png" %}"
+                        alt="Sunrisers Hyderabad">
+                </div>
+                <!-- Image-3 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "rcb.png" %}"
+                        alt="Royal Challengers Bangalore">
+                </div>
+                <!-- Image-4 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "dc.png" %}" alt="Delhi Capitals">
+                </div>
+                <!-- Image-5 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "rr.png" %}"
+                        alt="Rajasthan Royals">
+                </div>
+                <!-- Image-6 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "kkr.jpg" %}"
+                        alt="Kolkata Knight Riders">
+                </div>
+                <!-- Image-7 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "kxip.png" %}"
+                        alt="Kings XI Punjab">
+                </div>
+                <!-- Image-8 -->
+                <div class="image-container">
+                    <img class="image-width" src="{% static "csk.png" %}"
+                        alt="Chennai Super Kings">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+
+{% endblock %}

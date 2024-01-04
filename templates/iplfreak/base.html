@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}
+
+    {% endblock %}| IPL-Analysis</title>
+    <link rel="stylesheet" href="{% static 'bulma.css' %}">
+    <link rel="stylesheet" href="{% static 'tabs_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'pagination.css' %}">
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <link rel="stylesheet" href="{% static "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %}">
+</head>
+<body>
+    <nav style="background-color:#141f14;height:90px;" class="navbar is-transparent is-primary">
+        <div  class="navbar-brand">
+            <a class="navbar-item" href="{% url 'season_details' 2019 %}">
+                <img class="navbar-end" src={% static "vecteezy_batsman-playing-cricket-cricket-competition-logo-stylized_12188364-removebg.png" %}>
+                <h2 style="color: WHITE;font-size: 40px;" class="subtitle">CRIC<b style="color: red;font-size: 40px;">BUDDY</b></h2>
+            </a>
+            
+        </div>
+
+        {% if request.user.is_authenticated %}
+        <div  class="navbar-end">
+            <h3 class="navbar-item subtitle">{{ request.user }}</h3>
+            
+        </div>
+
+            <div  class="navbar-end">
+                {% block image %}
+                
+                {% endblock %}
+                <div class="navbar-item">
+                    <div class="navbar-item">
+                        
+                        
+                       
+                        
+                    
+                        
+                      </div>
+                      <a  class="button is-info" href="{% url 'score_predictor'  %}">Score Predictor</a>
+                      <a  class="button is-info" href="{% url 'ipl_dashboard'  %}">dashboard</a>
+                      <a class="button is-info" href="{% url 'logout' %}">Logout</a>
+                      <a class="button is-info" href="{% url 'all_teams' %}">all teams</a>
+                
+                    
+
+                </div>
+            </div>
+        {% else %}
+             <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="button is-info" href="{% url 'login' %}">Login</a>
+                </div>
+            </div>
+        {% endif %}
+    </nav>
+    
+
+    {% block content %}
+    
+    {% endblock %}
+    <div style="background-color:#141f14;height:auto">
+        <div style="height:40px;color:WHITE">
+            <center><h3>Cricbuddy is a an Indian sports platform that allows user to 
+                Analysis the previous record of player and team and predict the future
+                 of cricket matches of IPL. We use Artificial Intelligence (Machine 
+                 Learning) to predict the future of matches based on past trends and
+                  available data.</h3>
+
+
+            </div>
+            
+        </center>
+       <center><div style="color:white">
+        <p>Designed By </p>
+        <p>Kuldeep Verma</p>
+        <p>Python Developer</p>
+        <p id="copy ">© COPYRIGHTS KULDEEP_KD. ALL RIGHTS RESERVED.
+    </div></center>
+    </div>
+</body>
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>#}
+{#<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>#}
+<script src="{% static 'jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap.min.js' %}"></script>
+<script src="{% static 'dropdown-autosubmit.js' %}"></script>
+<script src="{% static 'paginate_table.js' %}"></script>
+<script src="{% static 'tabs.js' %}"></script>
+
+</html>
